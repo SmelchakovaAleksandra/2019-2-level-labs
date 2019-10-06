@@ -13,7 +13,7 @@ def write_to_file(path_to_file: str, content: tuple):
 
 def calculate_frequences(text: str) -> dict:
     dict = {}
-    punc = """'!"?$:;\/-=+<>^()*&^#№@%,.~`"""       #объявляются знаки пунктуации
+    punc = """'!"?$:;\/-=+<>^()*&^#№@%,.~`«»"""       #объявляются знаки пунктуации
     if (not text) or (type(text) != str):   #проверяется, пустая ли переменная text или является ли она вообще строкой
         return dict
     text = text.lower()
@@ -66,4 +66,4 @@ def get_top_n(frequencies: dict, top_n: int) -> tuple:
         for j in top_n_list:
             if type(j) == int:
                 top_n_list.remove(j)        #убираем количество упоминаний из списка, оставляя только слова
-    return tuple(top_n_list)        #возвращаем как кортеж    pass
+    return tuple(top_n_list)        #возвращаем как кортеж
