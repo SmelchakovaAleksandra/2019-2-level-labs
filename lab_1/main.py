@@ -49,7 +49,7 @@ def get_top_n(frequencies: dict, top_n: int) -> tuple:
     if top_n > len(frequencies):        #проверяем, если N больше, чем слов в словаре
         top_n = len(frequencies)        #если да, то уменьшаем до максимального количества слов в словаре
     for i in range(top_n):
-        top_n_list.extend(sorted_dict[i])       #пополняем список частотных слов значениями из отсортированного списка, до top_n
+        top_n_list.extend(sorted_dict[i])       #пополняем список частотных слов значениями из отсортированного списка до top_n
         for j in top_n_list:
             if type(j) == int:
                 top_n_list.remove(j)        #убираем количество упоминаний из списка, оставляя только слова
