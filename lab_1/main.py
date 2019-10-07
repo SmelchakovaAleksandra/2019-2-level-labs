@@ -1,19 +1,6 @@
-def read_from_file(path_to_file: str, lines_limit: int) -> str:
-    path_to_file = open('data.txt', 'r')
-    path_to_file.read(lines_limit)      #чтение до того номера слова, значение которого указано в lines_limit
-    path_to_file.close()
-    return path_to_file
-
-def write_to_file(path_to_file: str, content: tuple):
-    path_to_file = open('report.txt', 'w')
-    for i in content:
-        path_to_file.write(i + '\n')
-    path_to_file.close()
-    return path_to_file
-
 def calculate_frequences(text: str) -> dict:
     dict = {}
-    punc = """'!"?$:;\/-=+<>^()*&^#№@%,.~`«»"""       #объявляются знаки пунктуации
+    punc = """'!"?$:;/-=+<>^()*&^#№@%,.~`«»[]"""       #объявляются знаки пунктуации
     if (not text) or (type(text) != str):   #проверяется, пустая ли переменная text или является ли она вообще строкой
         return dict
     text = text.lower()
@@ -24,7 +11,7 @@ def calculate_frequences(text: str) -> dict:
     count = 0       #подсчёт количества упоминаний слова в тексте
     for i in text:
         count = 1
-        if (i.isdigit()) or (i.isspace()) or (i in punc):       #слово пропускается, если оно является цифрой, пробелом или знаком пунктуации
+        if (i.isdigit()) or (i.isspace()) or (i in punc) or ('\\n' in i):       #слово пропускается, если оно является цифрой, пробелом или знаком пунктуации
             continue
         if i in dict:
             count = dict[i] + 1     #если слово есть в словаре, то его счётчик увеличивается на 1
@@ -67,3 +54,17 @@ def get_top_n(frequencies: dict, top_n: int) -> tuple:
             if type(j) == int:
                 top_n_list.remove(j)        #убираем количество упоминаний из списка, оставляя только слова
     return tuple(top_n_list)        #возвращаем как кортеж
+
+def read_from_file(path_to_file: str, lines_limit: int) -> str:
+    file = open(path_to_file, 'r')
+    text = ''
+    for i in range(lines_limit):
+        text += str(file.readlines())      #чтение до того номера слова, значение которого указано в lines_limit
+    file.close()
+    return text
+
+def write_to_file(path_to_file: str, content: tuple):
+    file = open(path_to_file, 'w')
+    for i in content:
+        file.write(str(i) + '\n')
+    file.close()
