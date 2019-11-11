@@ -1,5 +1,3 @@
-
-
 def generate_edit_matrix(num_rows: int, num_cols: int) -> list:
     matrix = []
     if (num_rows and num_cols) and all(isinstance(i, int) for i in [num_cols, num_rows]) and (num_rows, num_cols != 0, 0):
@@ -87,8 +85,8 @@ def load_from_csv(path_to_file):
     file = open(path_to_file, 'r')
     res = []
     for l in file:
-        k = l.strip()
-        res.append(k.split(','))
+        m = l.strip()
+        res.append(m.split(','))
     file.close()
     return res
 
