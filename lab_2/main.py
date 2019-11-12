@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 def generate_edit_matrix(num_rows: int, num_cols: int) -> list:
     matrix = []
     if (num_rows and num_cols) and all(isinstance(i, int) for i in [num_cols, num_rows]) and (num_rows, num_cols != 0, 0):
@@ -31,6 +32,23 @@ def initialize_edit_matrix(edit_matrix: tuple, add_weight: int, remove_weight: i
 def minimum_value(numbers: tuple) -> int:
     res = min(numbers)
     return res
+=======
+"""
+Labour work #2. Levenshtein distance.
+"""
+
+
+def generate_edit_matrix(num_rows: int, num_cols: int) -> list:
+    pass
+
+
+def initialize_edit_matrix(edit_matrix: tuple, add_weight: int, remove_weight: int) -> list:
+    pass
+
+
+def minimum_value(numbers: tuple) -> int:
+    pass
+>>>>>>> upstream/master
 
 
 def fill_edit_matrix(edit_matrix: tuple,
@@ -39,6 +57,7 @@ def fill_edit_matrix(edit_matrix: tuple,
                      substitute_weight: int,
                      original_word: str,
                      target_word: str) -> list:
+<<<<<<< HEAD
     if not edit_matrix or [] in edit_matrix:
         return list(edit_matrix)
     if not all(isinstance(i, int) for i in [add_weight, remove_weight, substitute_weight]):
@@ -57,6 +76,9 @@ def fill_edit_matrix(edit_matrix: tuple,
                     min_ij = edit_matrix[i - 1][j - 1]
             edit_matrix[i][j] = minimum_value((min_i, min_j, min_ij))
     return list(edit_matrix)
+=======
+    pass
+>>>>>>> upstream/master
 
 
 def find_distance(original_word: str,
@@ -64,6 +86,7 @@ def find_distance(original_word: str,
                   add_weight: int,
                   remove_weight: int,
                   substitute_weight: int) -> int:
+<<<<<<< HEAD
     if not all(isinstance(i, str) for i in [original_word, target_word]):
         return -1
     if not all(isinstance(i, int) for i in [add_weight, remove_weight, substitute_weight]):
@@ -91,3 +114,6 @@ def load_from_csv(path_to_file):
     return res
 
 
+=======
+    pass
+>>>>>>> upstream/master
